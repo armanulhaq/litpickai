@@ -1,9 +1,15 @@
+import { Routes, Link, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home";
+import Navigation from "./components/Navigation";
 
 function App() {
     return (
         <>
-            <h1 className="bg-blue-400">Arman</h1>
+            <Navigation />
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
         </>
     );
 }
