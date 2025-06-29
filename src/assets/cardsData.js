@@ -21,7 +21,7 @@ const cardsData = [
         genreName: "Science Fiction",
         imageUrl:
             "https://cdn.dribbble.com/userupload/30337044/file/original-8caa0afb03b90dafdfeaed678f3c8f99.gif",
-        apiQuery: "science fiction",
+        apiQuery: "science-fiction",
     },
     {
         genreName: "Fantasy",
@@ -54,7 +54,7 @@ const cardsData = [
         apiQuery: "thriller",
     },
     {
-        genreName: "Biography & Autobiography",
+        genreName: "Biography",
         imageUrl:
             "https://cdn.dribbble.com/userupload/42323582/file/original-7637a68844e30618d83c83eedf78a9e2.gif",
         apiQuery: "biography",
@@ -106,10 +106,10 @@ const cardsData = [
         genreName: "Political Science",
         imageUrl:
             "https://cdn.dribbble.com/userupload/21499358/file/original-4cc65206e09066087d0640f38540461e.gif",
-        apiQuery: "political science",
+        apiQuery: "political-science",
     },
     {
-        genreName: "Business & Economics",
+        genreName: "Business",
         imageUrl:
             "https://i.pinimg.com/originals/95/84/f2/9584f27bb2f57a832277a06bb444a420.gif",
         apiQuery: "business",
@@ -131,7 +131,7 @@ const cardsData = [
         genreName: "Social Science",
         imageUrl:
             "https://cdn.dribbble.com/userupload/23709450/file/original-b6d05efcd2d581fda82a9c48ba5bd505.gif",
-        apiQuery: "social science",
+        apiQuery: "social-science",
     },
     {
         genreName: "Sports & Recreation",
