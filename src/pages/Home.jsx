@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div className="relative min-h-screen bg-white overflow-hidden">
-            {/* Decorative elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-60"></div>
                 <div className="absolute top-40 right-20 w-32 h-32 bg-indigo-100 rounded-full opacity-40"></div>
@@ -12,7 +11,6 @@ const Home = () => {
                 <div className="absolute bottom-20 right-10 w-16 h-16 bg-pink-100 rounded-full opacity-60"></div>
             </div>
 
-            {/* Grid pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
             <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-20 my-10 md:my-0">
                 <div className="max-w-6xl mx-auto text-center">
@@ -30,25 +28,21 @@ const Home = () => {
                         </span>
                     </h1>
 
-                    {/* Subtitle */}
                     <p className="text-md md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
                         Stop searching endlessly. Our AI finds insightful,
                         high-quality books tailored to what you’re truly looking
                         to learn, feel, or explore.
                     </p>
 
-                    {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-2 justify-center items-center mb-16">
                         <Link
-                            to="/"
-                            className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-3 md:px-8 md:py-4 rounded-full text-md md:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
+                            to="/choose"
+                            className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-3  lg:px-8 lg:py-4 rounded-full text-md lg:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
                         >
                             Start Your Journey
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
-
-                    {/* Feature highlights */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
                         <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
                             <Brain className="w-6 h-6 text-blue-600" />
@@ -76,7 +70,6 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <div className="text-center p-3 md:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                             <div className="text-3xl font-black text-blue-600 mb-2">
