@@ -2,21 +2,7 @@ import React from "react";
 import MoodCard from "../components/MoodCard";
 import cardsData from "../assets/cardsData";
 
-const Moods = () => {
-    const onClickHandler = async (apiQuery) => {
-        console.log(
-            `https://www.googleapis.com/books/v1/volumes?q=subject:${apiQuery}&maxResults=20&key=${
-                import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
-            }`
-        );
-        const data = await fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=subject:${apiQuery}&maxResults=20&key=${
-                import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
-            }`
-        );
-        const result = await data.json();
-        console.log(result);
-    };
+const Moods = ({ setResponse }) => {
     return (
         <div className="min-h-screen">
             <div className="text-center pt-26 px-8">
@@ -40,7 +26,8 @@ const Moods = () => {
                         key={card.genreName}
                         genreName={card.genreName}
                         imageUrl={card.imageUrl}
-                        onClick={() => onClickHandler(card.apiQuery)}
+                        apiQuery={card.apiQuery}
+                        setResponse={setResponse}
                     />
                 ))}
             </div>
