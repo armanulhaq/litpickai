@@ -2,142 +2,112 @@ const cardsData = [
     {
         genreName: "Fiction",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/25394456/file/original-8e7c62a5c4f4ee7375a7a200f4cb5868.gif",
-        apiQuery: "fiction",
+            "https://cdn.dribbble.com/userupload/42468391/file/original-005a733f6a91338aaec56b9cae7ba43c.gif",
+        apiQuery: "combined-print-and-e-book-fiction",
     },
     {
         genreName: "Non Fiction",
         imageUrl:
             "https://cdn.dribbble.com/userupload/23941634/file/original-674353314a72b96389e4ccc6a0a47021.gif",
-        apiQuery: "nonfiction",
-    },
-    {
-        genreName: "Science",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/35179008/file/original-c5fd27a7bdecddfd32ff1b9d11a0a250.gif",
-        apiQuery: "science",
-    },
-    {
-        genreName: "Science Fiction",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/30337044/file/original-8caa0afb03b90dafdfeaed678f3c8f99.gif",
-        apiQuery: "science-fiction",
-    },
-    {
-        genreName: "Fantasy",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/24575046/file/original-d3f509509432def0755d04e35eb3c2cd.gif",
-        apiQuery: "fantasy",
-    },
-    {
-        genreName: "Romance",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/21671303/file/original-692a46664a656628db13d02bc00e05ca.gif",
-        apiQuery: "romance",
-    },
-    {
-        genreName: "Horror",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/23768153/file/original-c46a65f242ce5227bd83b4b67e3b7ee3.gif",
-        apiQuery: "horror",
-    },
-    {
-        genreName: "Mystery",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/42226433/file/original-26778348d70479cf25f41b7bb9c73cdc.gif",
-        apiQuery: "mystery",
-    },
-    {
-        genreName: "Thriller",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/41956173/file/original-6c69a9a2355ed6685539e329f9cb22b8.gif",
-        apiQuery: "thriller",
-    },
-    {
-        genreName: "Biography",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/42323582/file/original-7637a68844e30618d83c83eedf78a9e2.gif",
-        apiQuery: "biography",
-    },
-    {
-        genreName: "History",
-        imageUrl:
-            "https://i.pinimg.com/originals/49/cf/32/49cf3226cfce6589c977475dfaebc99d.gif",
-        apiQuery: "history",
-    },
-    {
-        genreName: "Philosophy",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/22921263/file/original-147ccd220354618dfb36f233257c88a5.gif",
-        apiQuery: "philosophy",
-    },
-    {
-        genreName: "Religion",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/21097981/file/original-7e104e145355dff71849b067a57c3dc3.gif",
-        apiQuery: "religion",
-    },
-    {
-        genreName: "Self-Help",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/24426055/file/original-7a38bd9b0a5e3d66e51a178f324d05fc.gif",
-        apiQuery: "self-help",
-    },
-    {
-        genreName: "Health & Fitness",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/22226753/file/original-af4a5717cd6cec217f9003487e62d2f7.gif",
-        apiQuery: "health",
-    },
-    {
-        genreName: "Psychology",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/42378557/file/original-1c1edd7d85e36e25655924d3ba25bbd5.gif",
-        apiQuery: "psychology",
-    },
-    {
-        genreName: "Education",
-        imageUrl:
-            "https://cdn.dribbble.com/userupload/23152921/file/original-e3765b9da5b19ede49951454128b514b.gif",
-        apiQuery: "education",
+        apiQuery: "hardcover-nonfiction",
     },
 
     {
-        genreName: "Political Science",
+        genreName: "Young Adult",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/21499358/file/original-4cc65206e09066087d0640f38540461e.gif",
-        apiQuery: "political-science",
+            "https://cdn.dribbble.com/userupload/22006373/file/original-0ab5053e8c3a3e35679fced373b86aeb.gif",
+        apiQuery: "young-adult-hardcover",
+    },
+    {
+        genreName: "Children's Books",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/24225945/file/original-232bd57def20c51424847f0d07c8f126.gif",
+        apiQuery: "childrens-middle-grade-hardcover",
     },
     {
         genreName: "Business",
         imageUrl:
             "https://i.pinimg.com/originals/95/84/f2/9584f27bb2f57a832277a06bb444a420.gif",
-        apiQuery: "business",
+        apiQuery: "business-books",
     },
     {
-        genreName: "Art",
+        genreName: "Graphic Books and Manga",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/22218791/file/original-5e98c33812115150482384aa457959c6.gif",
-        apiQuery: "art",
+            "https://cdn.dribbble.com/userupload/22216795/file/original-450751ffc24ac37d59f0a54e35ab6fb1.gif",
+        apiQuery: "graphic-books-and-manga",
     },
     {
-        genreName: "Travel",
+        genreName: "Self Help",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/22229123/file/original-a21a72a76f11c88c4695974e814fbedc.gif",
-        apiQuery: "travel",
+            "https://cdn.dribbble.com/userupload/24426055/file/original-7a38bd9b0a5e3d66e51a178f324d05fc.gif",
+        apiQuery: "advice-how-to-and-miscellaneous",
     },
 
     {
-        genreName: "Social Science",
+        genreName: "Picture Books",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/23709450/file/original-b6d05efcd2d581fda82a9c48ba5bd505.gif",
-        apiQuery: "social-science",
+            "https://cdn.dribbble.com/userupload/23152921/file/original-e3765b9da5b19ede49951454128b514b.gif",
+        apiQuery: "picture-books",
     },
     {
-        genreName: "Sports & Recreation",
+        genreName: "Series Books",
         imageUrl:
-            "https://cdn.dribbble.com/userupload/22325303/file/original-d8a6126a610e8227716c08a17a207664.gif",
-        apiQuery: "sports",
+            "https://cdn.dribbble.com/userupload/42239503/file/original-f2e32b2015b0ad2e480ed3170d431126.gif",
+        apiQuery: "series-books",
+    },
+    {
+        genreName: "Trade Fiction",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/26046059/file/original-32d45e421254fdfcf9a8218e26c19d20.gif",
+        apiQuery: "trade-fiction-paperback",
+    },
+    {
+        genreName: "Audio Fiction",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/26094307/file/original-5112c69e0f198706ee04e12edd817139.gif",
+        apiQuery: "audio-fiction",
+    },
+    {
+        genreName: "Audio Nonfiction",
+        imageUrl:
+            "https://i.pinimg.com/originals/53/f2/66/53f2669d249361067355ea3816efc361.gif",
+        apiQuery: "audio-nonfiction",
+    },
+    {
+        genreName: "Food and Fitness",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/22226753/file/original-af4a5717cd6cec217f9003487e62d2f7.gif",
+        apiQuery: "food-and-fitness",
+    },
+    {
+        genreName: "Humor",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/21775270/file/original-4c05eafd72c31f1399d4a41cbd39ca19.gif",
+        apiQuery: "humor",
+    },
+    {
+        genreName: "True Crime",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/22676541/file/original-63b23b179e2d00124dc8db62ad2f8637.gif",
+        apiQuery: "true-crime",
+    },
+    {
+        genreName: "Relationships",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/21662605/file/original-1894b3999a392398ace4692087a6a0d2.gif",
+        apiQuery: "relationships",
+    },
+    {
+        genreName: "Politics",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/21499358/file/original-4cc65206e09066087d0640f38540461e.gif",
+        apiQuery: "politics",
+    },
+    {
+        genreName: "Religion, Spirituality and Faith",
+        imageUrl:
+            "https://cdn.dribbble.com/userupload/21097981/file/original-7e104e145355dff71849b067a57c3dc3.gif",
+        apiQuery: "religion-spirituality-and-faith",
     },
 ];
 

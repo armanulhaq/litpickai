@@ -4,11 +4,13 @@ import { BookOpen } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 const Books = ({ response, setResponse }) => {
-    const genre = useParams();
+    const { genre } = useParams();
     const fetchBooks = async () => {
         try {
             const data = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=subject:${genre}&maxResults=20`
+                `/api/svc/books/v3/lists/current/${genre}.json?api-key=${
+                    import.meta.env.VITE_NYT_API_KEY
+                }`
             );
             const result = await data.json();
             setResponse(result);
@@ -18,9 +20,14 @@ const Books = ({ response, setResponse }) => {
     };
     useEffect(() => {
         fetchBooks();
-    });
+    }, [genre]);
     // Check if response has items
-    if (!response || !response.items || response.items.length === 0) {
+    if (
+        !response ||
+        !response.results ||
+        !response.results.books ||
+        response.results.books.length === 0
+    ) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
                 <div className="text-center max-w-md mx-auto px-6">
@@ -87,8 +94,21 @@ const Books = ({ response, setResponse }) => {
             {/* Books Grid */}
             <div className="max-w-7xl mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {response.items.map((book) => (
-                        <BookCard key={book.id} book={book} />
+                    {response.results.books.map((book) => (
+                        <BookCard
+                            key={book.primary_isbn13}
+                            book={{
+                                volumeInfo: {
+                                    title: book.title,
+                                    authors: [book.author],
+                                    description: book.description,
+                                    imageLinks: {
+                                        thumbnail: book.book_image,
+                                    },
+                                    publisher: book.publisher,
+                                },
+                            }}
+                        />
                     ))}
                 </div>
             </div>

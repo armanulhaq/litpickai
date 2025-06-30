@@ -11,7 +11,7 @@ const BookCard = ({ book }) => {
     } = volumeInfo;
 
     return (
-        <div className="group relative bg-white/80 backdrop-blur-sm rounded-xl hover:shadow-2xl transition-all duration-700 ease-out overflow-hidden cursor-pointer border-1 border-gray-200 hover:border-white/40 ">
+        <div className="group relative bg-white/80 backdrop-blur-sm rounded-xl hover:shadow-2xl transition-all duration-700 ease-out overflow-hidden cursor-pointer border-1 border-gray-300 hover:border-white/40 ">
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
