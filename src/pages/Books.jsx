@@ -7,8 +7,12 @@ const Books = ({ response, setResponse }) => {
     const { genre } = useParams();
     const fetchBooks = async () => {
         try {
+            const isDev = import.meta.env.DEV;
+            const baseUrl = isDev
+                ? "/api/svc/books/v3/lists/current"
+                : "https://api.nytimes.com/svc/books/v3/lists/current";
             const data = await fetch(
-                `/api/svc/books/v3/lists/current/${genre}.json?api-key=${
+                `${baseUrl}/${genre}.json?api-key=${
                     import.meta.env.VITE_NYT_API_KEY
                 }`
             );
