@@ -7,16 +7,11 @@ const Moods = ({ setResponse }) => {
         <div className="min-h-screen">
             <div className="text-center pt-26 px-8">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent mb-6">
+                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent mb-6">
                         What's Your Reading Mood?
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-600 mb-4 font-medium">
+                    <p className="text-lg md:text-2xl text-gray-600 mb-4 font-medium">
                         Every mood deserves the perfect book companion
-                    </p>
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                        Whether you're craving adventure, seeking wisdom, or
-                        ready to fall in love, choose your genre and let AI
-                        curate the perfect reads for your current vibe.
                     </p>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 const BookCard = ({ book }) => {
-    const { volumeInfo, saleInfo } = book;
+    const { volumeInfo } = book;
     const {
         title,
         authors,
@@ -7,107 +7,124 @@ const BookCard = ({ book }) => {
         imageLinks,
         publishedDate,
         pageCount,
-        categories,
-        averageRating,
-        ratingsCount,
         publisher,
     } = volumeInfo;
+
     return (
-        <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div className="group relative bg-white/80 backdrop-blur-sm rounded-xl hover:shadow-2xl transition-all duration-700 ease-out overflow-hidden cursor-pointer border-1 border-gray-200 hover:border-white/40 ">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
             {/* Book Cover */}
-            <div className="aspect-[3/4] bg-gray-200 relative">
+            <div className="aspect-[3/4] bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 relative overflow-hidden">
                 {imageLinks?.thumbnail ? (
-                    <img
-                        src={imageLinks.thumbnail}
-                        alt={title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                            e.target.style.display = "none";
-                            e.target.nextSibling.style.display = "flex";
-                        }}
-                    />
-                ) : null}
-                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
-                    No Cover Available
-                </div>
+                    <>
+                        <img
+                            src={imageLinks.thumbnail}
+                            alt={title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                        />
+                        {/* Image Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </>
+                ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center">
+                        <div className="text-center transform group-hover:scale-110 transition-transform duration-500">
+                            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                <svg
+                                    className="w-10 h-10 text-indigo-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={1.5}
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                                    />
+                                </svg>
+                            </div>
+                            <p className="text-sm font-semibold text-indigo-300">
+                                No Cover Available
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Floating Badge */}
+                {publishedDate && (
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold text-gray-600 px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                        {publishedDate.split("-")[0]}
+                    </div>
+                )}
             </div>
 
-            {/* Book Info */}
-            <div className="p-4">
+            {/* Book Content */}
+            <div className="relative p-7">
                 {/* Title */}
-                <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">
+                <h3 className="font-bold text-xl mb-2 text-gray-900 leading-tight line-clamp-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:via-purple-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-500">
                     {title}
                 </h3>
 
                 {/* Authors */}
                 {authors && (
-                    <p className="text-sm text-gray-600 mb-2">
-                        by {authors.join(", ")}
-                    </p>
-                )}
-
-                {/* Rating */}
-                {averageRating && (
-                    <div className="flex items-center mb-2">
-                        <div className="flex text-yellow-400">
-                            {[...Array(5)].map((_, i) => (
-                                <svg
-                                    key={i}
-                                    className={`w-4 h-4 ${
-                                        i < Math.floor(averageRating)
-                                            ? "fill-current"
-                                            : "fill-gray-300"
-                                    }`}
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                                </svg>
-                            ))}
-                        </div>
-                        <span className="text-sm text-gray-500 ml-2">
-                            {averageRating.toFixed(1)} ({ratingsCount} ratings)
-                        </span>
-                    </div>
-                )}
-
-                {/* Categories */}
-                {categories && (
-                    <div className="mb-2">
-                        {categories.slice(0, 2).map((category, index) => (
-                            <span
-                                key={index}
-                                className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-1 mb-1"
-                            >
-                                {category}
-                            </span>
-                        ))}
+                    <div className="flex items-center gap-2 mb-3">
+                        <div className="w-1 h-4 bg-gradient-to-b from-indigo-400 to-purple-400 rounded-full" />
+                        <p className="text-sm font-medium text-indigo-600 truncate">
+                            {authors.join(", ")}
+                        </p>
                     </div>
                 )}
 
                 {/* Description */}
                 {description && (
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-3">
+                    <p className="text-sm text-gray-600 mb-5 line-clamp-3 leading-relaxed">
                         {description}
                     </p>
                 )}
 
                 {/* Book Details */}
-                <div className="text-xs text-gray-500 space-y-1">
-                    {publisher && <p>Publisher: {publisher}</p>}
-                    {publishedDate && <p>Published: {publishedDate}</p>}
-                    {pageCount && <p>Pages: {pageCount}</p>}
+                <div className="space-y-3 pt-4 border-t border-gradient-to-r from-transparent via-gray-200 to-transparent">
+                    {publisher && (
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full" />
+                            <span className="text-xs text-gray-500 font-medium">
+                                Publisher:
+                            </span>
+                            <span className="text-xs text-gray-700 font-semibold truncate max-w-[140px]">
+                                {publisher}
+                            </span>
+                        </div>
+                    )}
+
+                    {pageCount > 0 && (
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full" />
+                            <span className="text-xs text-gray-700 font-semibold">
+                                {pageCount} pages
+                            </span>
+                        </div>
+                    )}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="mt-4 flex gap-2">
-                    <button className="flex-1 bg-blue-600 text-white text-sm py-2 px-3 rounded hover:bg-blue-700 transition-colors">
-                        View Details
-                    </button>
-                    {saleInfo?.saleability === "FOR_SALE" && (
-                        <button className="bg-green-600 text-white text-sm py-2 px-3 rounded hover:bg-green-700 transition-colors">
-                            Buy
-                        </button>
-                    )}
+                {/* Hover Effect Indicator */}
+                <div className="absolute bottom-4 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                    <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                        <svg
+                            className="w-4 h-4 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
