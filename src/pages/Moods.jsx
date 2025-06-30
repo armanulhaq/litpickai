@@ -2,7 +2,7 @@ import React from "react";
 import MoodCard from "../components/MoodCard";
 import cardsData from "../assets/cardsData";
 
-const Moods = ({ setResponse }) => {
+const Moods = () => {
     return (
         <div className="min-h-screen">
             <div className="text-center pt-26 px-8">
@@ -22,7 +22,6 @@ const Moods = ({ setResponse }) => {
                         genreName={card.genreName}
                         imageUrl={card.imageUrl}
                         apiQuery={card.apiQuery}
-                        setResponse={setResponse}
                     />
                 ))}
             </div>
