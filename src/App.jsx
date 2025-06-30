@@ -14,11 +14,13 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/choose" element={<Moods />} />
                 <Route
-                    path="/choose"
-                    element={<Moods setResponse={setResponse} />}
+                    path="/:genre"
+                    element={
+                        <Books response={response} setResponse={setResponse} />
+                    }
                 />
-                <Route path="/:genre" element={<Books response={response} />} />
             </Routes>
         </>
     );

@@ -1,34 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BookCard from "../components/BookCard";
+import { BookOpen } from "lucide-react";
+import { useParams } from "react-router-dom";
 
-const Books = ({ response }) => {
+const Books = ({ response, setResponse }) => {
+    const genre = useParams();
+    const fetchBooks = async () => {
+        try {
+            const data = await fetch(
+                `https://www.googleapis.com/books/v1/volumes?q=subject:${genre}&maxResults=20`
+            );
+            const result = await data.json();
+            setResponse(result);
+        } catch (error) {
+            console.error("Error fetching books:", error);
+        }
+    };
+    useEffect(() => {
+        fetchBooks();
+    });
     // Check if response has items
     if (!response || !response.items || response.items.length === 0) {
         return (
-            <div className="min-h-screen  flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
                 <div className="text-center max-w-md mx-auto px-6">
-                    <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                        <svg
-                            className="w-12 h-12 text-blue-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                            />
-                        </svg>
+                    {/* Animated Book Icon */}
+                    <div className="relative w-32 h-32 mx-auto mb-8">
+                        {/* Outer rotating ring */}
+                        <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-500 border-r-indigo-500 animate-spin"></div>
+                        {/* Inner pulsing circle */}
+                        <div className="absolute inset-3 rounded-full bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 animate-pulse flex items-center justify-center">
+                            <BookOpen className="h-12 w-12 text-blue-600 animate-bounce" />
+                        </div>
+                        <div className="absolute -top-2 -right-2 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
+                        <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-indigo-500 rounded-full animate-ping animation-delay-300"></div>
+                        <div className="absolute top-1/2 -left-3 w-2 h-2 bg-purple-500 rounded-full animate-ping animation-delay-700"></div>
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                        No books found
-                    </h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        Try selecting a different genre or check your search
-                        criteria to discover amazing books.
-                    </p>
+
+                    {/* Loading Text */}
+                    <div className="space-y-4">
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            Discovering Books
+                        </h2>
+                        <div className="flex items-center justify-center space-x-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce animation-delay-200"></div>
+                            <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce animation-delay-400"></div>
+                        </div>
+                        <p className="text-gray-600 leading-relaxed animate-pulse">
+                            Curating the perfect collection for you...
+                        </p>
+                    </div>
+                </div>
+
+                {/* Background decoration */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full animate-float"></div>
+                    <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-indigo-400/10 rounded-full animate-float animation-delay-500"></div>
+                    <div className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-purple-400/10 rounded-full animate-float animation-delay-1000"></div>
                 </div>
             </div>
         );
@@ -50,11 +79,6 @@ const Books = ({ response }) => {
                                 Discover carefully curated books selected just
                                 for you
                             </p>
-                            <div className="mt-6 flex items-center justify-center gap-2">
-                                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
-                                <div className="h-1 w-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                                <div className="h-1 w-3 bg-purple-500 rounded-full"></div>
-                            </div>
                         </div>
                     </div>
                 </div>

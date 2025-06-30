@@ -1,14 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-const MoodCard = ({ genreName, imageUrl, apiQuery, setResponse }) => {
+const MoodCard = ({ genreName, imageUrl, apiQuery }) => {
     const navigate = useNavigate();
     const onClickHandler = async () => {
         try {
-            const data = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=subject:${apiQuery}&maxResults=20`
-            );
-            const result = await data.json();
-            setResponse(result);
             navigate(`/${apiQuery}`);
         } catch (error) {
             console.error("Error fetching books:", error);
