@@ -19,7 +19,6 @@ const Books = ({ response, setResponse, setBook }) => {
 
     useEffect(() => {
         setResponse(null);
-
         fetchBooks();
     }, [genre]);
     // Check if response has items
@@ -69,6 +68,10 @@ const Books = ({ response, setResponse, setBook }) => {
                                         thumbnail: book.book_image,
                                     },
                                     publisher: book.publisher,
+                                    image: book.book_image,
+                                    url: book.amazon_product_url,
+                                    rank: book.rank,
+                                    prevRank: book.rank_last_week,
                                 },
                             }}
                         />

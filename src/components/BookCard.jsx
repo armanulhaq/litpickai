@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 const BookCard = ({ book, setBook }) => {
     const { volumeInfo } = book;
+    console.log(volumeInfo);
     const {
         title,
         authors,
@@ -10,7 +11,11 @@ const BookCard = ({ book, setBook }) => {
         publishedDate,
         pageCount,
         publisher,
+        url,
+        rank,
+        prevRank,
     } = volumeInfo;
+
     const navigate = useNavigate();
     const safeSlug = (title) =>
         encodeURIComponent(title.toLowerCase().replace(/\s+/g, "-"));
@@ -22,10 +27,31 @@ const BookCard = ({ book, setBook }) => {
                 setBook({
                     title,
                     authors,
+                    description,
+                    imageLinks,
+                    publishedDate,
+                    pageCount,
                     publisher,
+                    url,
+                    rank,
+                    prevRank,
                 });
                 navigate(`/book/${safeSlug(title)}`);
-                localStorage.setItem("selectedBook", JSON.stringify(book)); //saving the data in local storage so it is not lost on refresh
+                localStorage.setItem(
+                    "selectedBook",
+                    JSON.stringify({
+                        title,
+                        authors,
+                        description,
+                        imageLinks,
+                        publishedDate,
+                        pageCount,
+                        publisher,
+                        url,
+                        rank,
+                        prevRank,
+                    })
+                ); //saving the data in local storage so it is not lost on refresh
             }}
         >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

@@ -3,7 +3,8 @@ import MoodCard from "../components/MoodCard";
 import Loader from "../components/Loader";
 
 const Moods = () => {
-    const [genres, setGenres] = useState([]);
+    const [genresAvailable, setGenresAvailable] = useState([]);
+
     useEffect(() => {
         const fetchGenres = async () => {
             const res = await fetch(`/api/svc/books/v3/lists/overview.json`);
@@ -12,13 +13,17 @@ const Moods = () => {
                 genreName: list.display_name,
                 apiQuery: list.list_name_encoded,
             }));
-            setGenres(uniqueLists);
+            // Sample data:[
+            //     { genreName: "Hardcover Fiction", apiQuery: "hardcover-fiction" },
+            //     { genreName: "Paperback Nonfiction", apiQuery: "paperback-nonfiction" }
+            //]
+            setGenresAvailable(uniqueLists);
         };
 
         fetchGenres();
     }, []);
 
-    return genres.length === 0 ? (
+    return genresAvailable.length === 0 ? (
         <Loader />
     ) : (
         <div className="min-h-screen">
@@ -33,7 +38,7 @@ const Moods = () => {
                 </div>
             </div>
             <div className="p-8 lg:px-40 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 my-10">
-                {genres.map((genre, idx) => (
+                {genresAvailable.map((genre, idx) => (
                     <MoodCard
                         key={idx}
                         genreName={genre.genreName}
