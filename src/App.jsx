@@ -1,4 +1,4 @@
-import { Routes, Link, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Navigation from "./components/Navigation";
@@ -7,7 +7,7 @@ import Books from "./pages/Books";
 import { useState } from "react";
 
 function App() {
-    const [response, setResponse] = useState({});
+    const [response, setResponse] = useState(null);
 
     return (
         <>

@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MoodCard from "../components/MoodCard";
-import cardsData from "../assets/cardsData";
 
 const Moods = () => {
+    const [genres, setGenres] = useState([]);
+    useEffect(() => {
+        const fetchGenres = async () => {
+            const res = await fetch(`/api/svc/books/v3/lists/overview.json`);
+            const data = await res.json();
+            const uniqueLists = data.results.lists.map((list) => ({
+                genreName: list.display_name,
+                apiQuery: list.list_name_encoded,
+            }));
+            setGenres(uniqueLists);
+        };
+
+        fetchGenres();
+    }, []);
+
     return (
         <div className="min-h-screen">
             <div className="text-center pt-26 px-8">
@@ -16,12 +30,11 @@ const Moods = () => {
                 </div>
             </div>
             <div className="p-8 lg:px-40 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 my-10">
-                {cardsData.map((card) => (
+                {genres.map((genre, idx) => (
                     <MoodCard
-                        key={card.genreName}
-                        genreName={card.genreName}
-                        imageUrl={card.imageUrl}
-                        apiQuery={card.apiQuery}
+                        key={idx}
+                        genreName={genre.genreName}
+                        apiQuery={genre.apiQuery}
                     />
                 ))}
             </div>
