@@ -5,9 +5,11 @@ import Navigation from "./components/Navigation";
 import Moods from "./pages/Moods";
 import Books from "./pages/Books";
 import { useState } from "react";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
     const [response, setResponse] = useState(null);
+    const [book, setBook] = useState(null);
 
     return (
         <>
@@ -18,8 +20,16 @@ function App() {
                 <Route
                     path="/:genre"
                     element={
-                        <Books response={response} setResponse={setResponse} />
+                        <Books
+                            response={response}
+                            setResponse={setResponse}
+                            setBook={setBook}
+                        />
                     }
+                />
+                <Route
+                    path="/book/:bookname"
+                    element={<BookDetails book={book} />}
                 />
             </Routes>
         </>

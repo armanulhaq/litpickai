@@ -21,7 +21,7 @@ const Loader = () => {
                     {/* Loading Text */}
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                            Discovering Books
+                            Discovering
                         </h2>
                         <div className="flex items-center justify-center space-x-1">
                             <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>

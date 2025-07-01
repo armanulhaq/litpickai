@@ -1,4 +1,6 @@
-const BookCard = ({ book }) => {
+import { useNavigate } from "react-router-dom";
+
+const BookCard = ({ book, setBook }) => {
     const { volumeInfo } = book;
     const {
         title,
@@ -9,13 +11,25 @@ const BookCard = ({ book }) => {
         pageCount,
         publisher,
     } = volumeInfo;
+    const navigate = useNavigate();
+    const safeSlug = (title) =>
+        encodeURIComponent(title.toLowerCase().replace(/\s+/g, "-"));
 
     return (
-        <div className="group relative bg-white/80 backdrop-blur-sm rounded-xl hover:shadow-2xl transition-all duration-700 ease-out overflow-hidden cursor-pointer border-1 border-gray-300 hover:border-white/40 ">
-            {/* Gradient Overlay */}
+        <div
+            className="group relative bg-white/80 backdrop-blur-sm rounded-xl hover:shadow-2xl transition-all duration-700 ease-out overflow-hidden cursor-pointer border-1 border-gray-300 hover:border-white/40"
+            onClick={() => {
+                setBook({
+                    title,
+                    authors,
+                    publisher,
+                });
+                navigate(`/book/${safeSlug(title)}`);
+                localStorage.setItem("selectedBook", JSON.stringify(book)); //saving the data in local storage so it is not lost on refresh
+            }}
+        >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-            {/* Book Cover */}
             <div className="aspect-[3/4] bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 relative overflow-hidden">
                 {imageLinks?.thumbnail ? (
                     <>
@@ -24,7 +38,6 @@ const BookCard = ({ book }) => {
                             alt={title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
-                        {/* Image Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </>
                 ) : (
@@ -52,7 +65,6 @@ const BookCard = ({ book }) => {
                     </div>
                 )}
 
-                {/* Floating Badge */}
                 {publishedDate && (
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold text-gray-600 px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                         {publishedDate.split("-")[0]}
@@ -60,14 +72,10 @@ const BookCard = ({ book }) => {
                 )}
             </div>
 
-            {/* Book Content */}
             <div className="relative p-7">
-                {/* Title */}
                 <h3 className="font-bold text-xl mb-2 text-gray-900 leading-tight line-clamp-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:via-purple-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-500">
                     {title}
                 </h3>
-
-                {/* Authors */}
                 {authors && (
                     <div className="flex items-center gap-2 mb-3">
                         <div className="w-1 h-4 bg-gradient-to-b from-indigo-400 to-purple-400 rounded-full" />
@@ -77,14 +85,12 @@ const BookCard = ({ book }) => {
                     </div>
                 )}
 
-                {/* Description */}
                 {description && (
                     <p className="text-sm text-gray-600 mb-5 line-clamp-3 leading-relaxed">
                         {description}
                     </p>
                 )}
 
-                {/* Book Details */}
                 <div className="space-y-3 pt-4 border-t border-gradient-to-r from-transparent via-gray-200 to-transparent">
                     {publisher && (
                         <div className="flex items-center gap-2">
@@ -108,7 +114,6 @@ const BookCard = ({ book }) => {
                     )}
                 </div>
 
-                {/* Hover Effect Indicator */}
                 <div className="absolute bottom-4 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
                     <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
                         <svg

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MoodCard from "../components/MoodCard";
+import Loader from "../components/Loader";
 
 const Moods = () => {
     const [genres, setGenres] = useState([]);
@@ -17,7 +18,9 @@ const Moods = () => {
         fetchGenres();
     }, []);
 
-    return (
+    return genres.length === 0 ? (
+        <Loader />
+    ) : (
         <div className="min-h-screen">
             <div className="text-center pt-26 px-8">
                 <div className="max-w-4xl mx-auto">

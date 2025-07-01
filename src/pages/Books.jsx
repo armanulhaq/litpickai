@@ -3,7 +3,7 @@ import BookCard from "../components/BookCard";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
 
-const Books = ({ response, setResponse }) => {
+const Books = ({ response, setResponse, setBook }) => {
     const { genre } = useParams();
     const fetchBooks = async () => {
         try {
@@ -59,6 +59,7 @@ const Books = ({ response, setResponse }) => {
                     {response.results.books.map((book) => (
                         <BookCard
                             key={book.primary_isbn13}
+                            setBook={setBook}
                             book={{
                                 volumeInfo: {
                                     title: book.title,
