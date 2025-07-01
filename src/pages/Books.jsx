@@ -8,9 +8,7 @@ const Books = ({ response, setResponse }) => {
     const fetchBooks = async () => {
         try {
             const data = await fetch(
-                `/api/svc/books/v3/lists/current/${genre}.json?api-key=${
-                    import.meta.env.VITE_NYT_API_KEY
-                }`
+                `/api/svc/books/v3/lists/current/${genre}.json`
             );
             const result = await data.json();
             setResponse(result);
@@ -18,6 +16,7 @@ const Books = ({ response, setResponse }) => {
             console.error("Error fetching books:", error);
         }
     };
+
     useEffect(() => {
         fetchBooks();
     }, [genre]);
