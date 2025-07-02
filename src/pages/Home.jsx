@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div className="relative min-h-screen overflow-hidden bg-gray-50">
-            <div className="absolute inset-0">
-                <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-70"></div>
-                <div className="absolute top-40 right-20 w-32 h-32 bg-blue-200 rounded-full opacity-60"></div>
-                <div className="absolute bottom-40 left-20 w-24 h-24 bg-blue-50 rounded-full opacity-60"></div>
-                <div className="absolute bottom-20 right-10 w-16 h-16 bg-blue-300 rounded-full opacity-80"></div>
+        <div className="relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-70 animate-bounce [animation-duration:2.2s]"></div>
+                <div className="absolute top-40 right-20 w-32 h-32 bg-blue-200 rounded-full opacity-60 animate-bounce [animation-delay:0.7s] [animation-duration:2.8s]"></div>
+                <div className="absolute bottom-40 left-20 w-24 h-24 bg-blue-50 rounded-full opacity-60 animate-bounce [animation-delay:1.2s] [animation-duration:2.5s]"></div>
+                <div className="absolute bottom-20 right-10 w-16 h-16 bg-blue-300 rounded-full opacity-80 animate-bounce [animation-delay:1.7s] [animation-duration:2.9s]"></div>
             </div>
 
-            <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-20 my-10 md:my-0">
+            <div className="relative z-10 flex items-center justify-center px-6 pt-15 my-10 md:my-20">
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 px-2 py-1 md:px-4 md:py-2 rounded-full md:text-sm text-xs font-medium mb-2">
                         <Sparkles className="w-4 h-4" />
@@ -25,7 +25,7 @@ const Home = () => {
                         </span>
                     </h1>
 
-                    <p className="text-md md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-md md:text-lg text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed">
                         Discover the most talked-about books across every genre,
                         updated weekly from the New York Times Best Seller
                         lists. Click any book for instant AI-powered summaries,
@@ -65,33 +65,6 @@ const Home = () => {
                             <span className="text-gray-700 text-sm md:text-md font-medium">
                                 One-Click Exploration
                             </span>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div className="text-center p-3 md:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                            <div className="text-3xl font-black text-blue-600 mb-2">
-                                100+
-                            </div>
-                            <div className="text-gray-600 text-sm">
-                                NYT Bestseller Lists Tracked
-                            </div>
-                        </div>
-                        <div className="text-center p-3 md:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                            <div className="text-3xl font-black text-blue-500 mb-2">
-                                Updated
-                            </div>
-                            <div className="text-gray-600 text-sm">
-                                Every Week
-                            </div>
-                        </div>
-                        <div className="text-center p-3 md:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                            <div className="text-3xl font-black text-blue-400 mb-2">
-                                Instant
-                            </div>
-                            <div className="text-gray-600 text-sm">
-                                AI Book Insights
-                            </div>
                         </div>
                     </div>
                 </div>

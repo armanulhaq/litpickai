@@ -38,7 +38,7 @@ const Books = ({ response, setResponse, setBook }) => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Header Section */}
-            <div>
+            <div className=" border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 py-10">
                     <div className="text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-3 text-blue-700">
