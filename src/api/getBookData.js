@@ -8,12 +8,8 @@ Given the following book details, respond ONLY with a valid JSON object in this 
 
 {
   "summary": "...",
-  "themes": ["..."],
-  "notable_quotes": ["..."],
   "why_you_will_love_this": "...",
   "target_audience": "...",
-  "reading_mood": "...",
-  "ai_rating": "...",
   "author_background": "...",
 
 }

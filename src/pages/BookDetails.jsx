@@ -289,20 +289,8 @@ const BookDetails = () => {
                                 </p>
                             </div>
 
-                            {/* AI Rating */}
-                            <div className="bg-white/50 backdrop-blur-sm rounded-2xl hover:shadow-xl p-6 border-1 border-gray-200 transition-all duration-300">
-                                <h4 className="text-2xl font-bold text-yellow-700 mb-4">
-                                    AI Rating
-                                </h4>
-                                <div className="inline-flex items-center gap-2 rounded-2xl">
-                                    <span className="text-md">
-                                        {aiData.ai_rating}
-                                    </span>
-                                </div>
-                            </div>
-
                             {aiData.target_audience && (
-                                <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border-1 border-gray-200 hover:shadow-xl transition-all duration-300">
                                     <h4 className="text-2xl font-bold text-indigo-700 mb-4 flex items-center gap-3">
                                         <Users size={24} />
                                         Perfect For
@@ -314,7 +302,7 @@ const BookDetails = () => {
                             )}
 
                             {aiData.author_background && (
-                                <div className="lg:col-span-2 bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div className="lg:col-span-2 bg-white/50 backdrop-blur-sm rounded-2xl p-6 border-1 border-gray-200 hover:shadow-xl transition-all duration-300">
                                     <h4 className="text-2xl font-bold text-gray-700 mb-4">
                                         About the Author
                                     </h4>

@@ -15,7 +15,7 @@ const Home = () => {
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 px-2 py-1 md:px-4 md:py-2 rounded-full md:text-sm text-xs font-medium mb-2">
                         <Sparkles className="w-4 h-4" />
-                        Weekly NYT Bestsellers + AI Insights
+                        Weekly Bestsellers + AI Insights
                     </div>
 
                     <h1 className="text-4xl md:text-3xl lg:text-6xl font-black mb-6 leading-tight text-gray-900">

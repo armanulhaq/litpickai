@@ -22,7 +22,7 @@ const Moods = () => {
     return genresAvailable.length === 0 ? (
         <Loader />
     ) : (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50">
             <div className="text-center pt-24 px-8">
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-6">
