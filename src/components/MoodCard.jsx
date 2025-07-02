@@ -1,35 +1,35 @@
 import { useNavigate } from "react-router-dom";
 
-const softGradients = [
-    "from-indigo-100 via-purple-100 to-pink-100",
-    "from-pink-100 via-red-100 to-yellow-100",
-    "from-yellow-100 via-orange-100 to-pink-100",
-    "from-blue-100 via-sky-100 to-indigo-100",
-    "from-emerald-100 via-green-100 to-lime-100",
-    "from-purple-100 via-fuchsia-100 to-rose-100",
-    "from-cyan-100 via-sky-100 to-blue-100",
-    "from-zinc-100 via-neutral-100 to-gray-100",
+// Array of soft, solid pastel colors (Tailwind or hex codes)
+const pastelBgColors = [
+    "bg-pink-100",
+    "bg-blue-100",
+    "bg-yellow-100",
+    "bg-green-100",
+    "bg-purple-100",
+    "bg-gray-100",
+    "bg-indigo-100",
+    "bg-emerald-100",
 ];
 
-const MoodCard = ({ genreName, apiQuery }) => {
+const MoodCard = ({ genreName, apiQuery, idx }) => {
     const navigate = useNavigate();
+
+    // Cycle through colors based on index for consistency
+    const bgColor = pastelBgColors[idx % pastelBgColors.length];
 
     const onClickHandler = () => {
         navigate(`/${apiQuery}`);
     };
 
-    const randomGradient =
-        softGradients[Math.floor(Math.random() * softGradients.length)];
-
     return (
         <div
-            className={`relative h-40 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 bg-gradient-to-br ${randomGradient}`}
+            className={`relative h-40 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 ${bgColor} flex items-center justify-center`}
             onClick={onClickHandler}
         >
-            <div className="absolute inset-0 bg-black/5 backdrop-blur-sm z-0" />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-800 text-xl font-semibold z-10 drop-shadow-md">
+            <span className="text-gray-800 text-lg font-medium">
                 {genreName}
-            </div>
+            </span>
         </div>
     );
 };

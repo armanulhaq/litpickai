@@ -13,10 +13,6 @@ const Moods = () => {
                 genreName: list.display_name,
                 apiQuery: list.list_name_encoded,
             }));
-            // Sample data:[
-            //     { genreName: "Hardcover Fiction", apiQuery: "hardcover-fiction" },
-            //     { genreName: "Paperback Nonfiction", apiQuery: "paperback-nonfiction" }
-            //]
             setGenresAvailable(uniqueLists);
         };
 
@@ -26,14 +22,16 @@ const Moods = () => {
     return genresAvailable.length === 0 ? (
         <Loader />
     ) : (
-        <div className="min-h-screen">
-            <div className="text-center pt-26 px-8">
+        <div className="min-h-screen bg-gray-50">
+            <div className="text-center pt-24 px-8">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent mb-6">
-                        What's Your Reading Mood?
+                    <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-6">
+                        Pick Your Genre or Mood
                     </h1>
                     <p className="text-lg md:text-2xl text-gray-600 mb-4 font-medium">
-                        Every mood deserves the perfect book companion
+                        Browse the latest NYT bestsellers by category—fiction,
+                        nonfiction, children’s, and more. There’s something new
+                        every week.
                     </p>
                 </div>
             </div>
@@ -43,6 +41,7 @@ const Moods = () => {
                         key={idx}
                         genreName={genre.genreName}
                         apiQuery={genre.apiQuery}
+                        idx={idx}
                     />
                 ))}
             </div>
