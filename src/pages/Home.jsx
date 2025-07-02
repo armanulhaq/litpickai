@@ -48,7 +48,7 @@ const Home = () => {
                                 Weekly NYT Bestseller Updates
                             </span>
                         </div>
-                        <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl border border-gray-100">
+                        <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl border border-blue-100">
                             <Heart className="w-6 h-6 text-blue-500" />
                             <span className="text-gray-700 text-sm md:text-md font-medium">
                                 AI-Powered Book Insights
