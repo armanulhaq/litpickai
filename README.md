@@ -20,32 +20,7 @@ LitPick AI is a modern React web app that showcases the latest New York Times Be
 -   **Styling:** Tailwind CSS
 -   **Routing:** React Router DOM
 -   **APIs:** New York Times Books API, Google Gemini (Generative AI)
--   **Deployment:** Vercel (recommended), or any static hosting
-
----
-
-## 📦 Project Structure
-
-src/
-│
-├── api/
-│ └── getBookData.js # Handles AI requests to Google Gemini
-│
-├── components/
-│ ├── BookCard.jsx # Book display card
-│ ├── Loader.jsx # Loading spinner
-│ ├── MoodCard.jsx # Genre selection card
-│ └── Navigation.jsx # Top navigation bar
-│
-├── pages/
-│ ├── Home.jsx # Landing page
-│ ├── Moods.jsx # Genre selection page
-│ ├── Books.jsx # Book list for a genre
-│ └── BookDetails.jsx # Detailed book + AI insights
-│
-├── App.jsx # Main router and state
-├── main.jsx # App entry point
-└── index.css # Tailwind base styles
+-   **Deployment:** Vercel
 
 ---
 
@@ -53,26 +28,34 @@ src/
 
 ### 1. Clone the repository
 
+```sh
 git clone https://github.com/armanulhaq/litpickai.git
 cd litpickai
+```
 
 ### 2. Install dependencies
 
+```sh
 npm install
+```
 
 ### 3. Set up environment variables
 
 Create a .env file in the project root:
 
+```env
 VITE_NYT_API_KEY=your-nyt-api-key
 VITE_GEMINI_API_KEY=your-gemini-api-key
+```
 
 -   Get your NYT API key from [NYT Developer Portal](https://developer.nytimes.com/)
 -   Get your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
 
 ### 4. Run the development server
 
+```sh
 npm run dev
+```
 
 The app will be available at [http://localhost:5173](http://localhost:5173)
 
@@ -83,7 +66,7 @@ The app will be available at [http://localhost:5173](http://localhost:5173)
 During development, API requests to /api are proxied to the NYT API, with your API key injected automatically.
 See vite.config.js for details.
 
-For production (e.g., Vercel), see the vercel.json rewrite rules.
+For production see the vercel.json rewrite rules.
 
 ---
 
