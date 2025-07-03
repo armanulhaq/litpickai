@@ -4,23 +4,22 @@ const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 async function main(book) {
     const prompt = `
-Given the following book details, respond ONLY with a valid JSON object in this format (no markdown, no code block, no explanation):
+            Given the following book details, respond ONLY with a valid JSON object in this format (no markdown, no code block, no explanation):
 
-{
-  "summary": "...",
-  "why_you_will_love_this": "...",
-  "target_audience": "...",
-  "author_background": "...",
+            {
+                "summary": "...",
+                "why_you_will_love_this": "...",
+                "target_audience": "...",
+                "author_background": "...",
+            }
 
-}
+            Be engaging, insightful, and detailed. Avoid generic language. Use the book details below to generate your response.
 
-Be engaging, insightful, and detailed. Avoid generic language. Use the book details below to generate your response.
-
-Book details:
-Title: ${book.title}
-Author(s): ${book.authors?.join(", ")}
-Description: ${book.description}
-Publisher: ${book.publisher}
+            Book details:
+            Title: ${book.title}
+            Author(s): ${book.authors?.join(", ")}
+            Description: ${book.description}
+            Publisher: ${book.publisher}
     `;
 
     const response = await ai.models.generateContent({
@@ -28,16 +27,15 @@ Publisher: ${book.publisher}
         contents: prompt,
         config: {
             thinkingConfig: {
-                thinkingBudget: 0,
+                thinkingBudget: 0, //fast
             },
         },
     });
 
-    // Try to parse the response as JSON
     try {
-        const jsonStart = response.text.indexOf("{");
-        const jsonString = response.text.slice(jsonStart);
-        return JSON.parse(jsonString);
+        const jsonStart = response.text.indexOf("{"); //find start of object
+        const cleanResponse = response.text.slice(jsonStart); //slice from jsonStart to end of response to isolate json res
+        return JSON.parse(cleanResponse);
     } catch (e) {
         console.error(
             "Failed to parse Gemini response as JSON:",

@@ -23,9 +23,8 @@ const Books = ({ response, setResponse, setBook }) => {
     useEffect(() => {
         setResponse(null);
         fetchBooks();
-    }, [genre]);
+    }, [genre]); //re-runs when user navigates to a different genre
 
-    // Loader if no data
     if (
         !response ||
         !response.results ||
@@ -37,7 +36,6 @@ const Books = ({ response, setResponse, setBook }) => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 ">
-            {/* Header Section */}
             <div className=" border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 py-10">
                     <div className="text-center">
@@ -53,7 +51,6 @@ const Books = ({ response, setResponse, setBook }) => {
                 </div>
             </div>
 
-            {/* Books Grid */}
             <div className="max-w-7xl mx-auto px-4 py-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {response.results.books.map((book) => (

@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-// Array of soft, solid pastel colors (Tailwind or hex codes)
 const pastelBgColors = [
     "bg-pink-100",
     "bg-blue-100",
@@ -15,7 +14,6 @@ const pastelBgColors = [
 const MoodCard = ({ genreName, apiQuery, idx }) => {
     const navigate = useNavigate();
 
-    // Cycle through colors based on index for consistency
     const bgColor = pastelBgColors[idx % pastelBgColors.length];
 
     const onClickHandler = () => {
@@ -27,9 +25,7 @@ const MoodCard = ({ genreName, apiQuery, idx }) => {
             className={`relative h-40 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 ${bgColor} flex items-center justify-center`}
             onClick={onClickHandler}
         >
-            <span className="text-gray-800 text-lg font-medium">
-                {genreName}
-            </span>
+            <span className="text-gray-800 text-md">{genreName}</span>
         </div>
     );
 };

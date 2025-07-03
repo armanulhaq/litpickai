@@ -111,15 +111,6 @@ const BookCard = ({ book, setBook }) => {
                             </span>
                         </div>
                     )}
-
-                    {pageCount > 0 && (
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-blue-200 rounded-full" />
-                            <span className="text-xs text-gray-700 font-semibold">
-                                {pageCount} pages
-                            </span>
-                        </div>
-                    )}
                 </div>
             </div>
         </div>

@@ -23,5 +23,5 @@ export default defineConfig(({ mode }) => {
         },
     };
 });
-//You write: fetch('/api/svc/books/v3/lists/current/fiction.json')
-//Vite converts to: https://api.nytimes.com/svc/books/v3/lists/current/fiction.json?api-key=YOUR_KEY
+//I write: fetch('/api/svc/books/v3/lists/current/fiction.json')
+//Vite converts to: https://api.nytimes.com/svc/books/v3/lists/current/fiction.json?api-key=MY_KEY
