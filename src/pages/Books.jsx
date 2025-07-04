@@ -9,9 +9,7 @@ const Books = ({ response, setResponse, setBook }) => {
     const fetchBooks = async () => {
         try {
             const data = await fetch(
-                `/api/svc/books/v3/lists/current/${genre}.json?api-key=${
-                    import.meta.env.VITE_NYT_API_KEY
-                }`
+                `/api/svc/books/v3/lists/current/${genre}.json`
             );
             const result = await data.json();
             setResponse(result);
