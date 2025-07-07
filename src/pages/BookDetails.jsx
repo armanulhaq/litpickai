@@ -155,6 +155,23 @@ const BookDetails = () => {
                                         </p>
                                     </div>
 
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <StatCard
+                                            label="Current Rank"
+                                            value={`#${book.rank}`}
+                                            gradient="bg-gradient-to-r from-blue-50 to-cyan-50"
+                                        />
+                                        <StatCard
+                                            label="Previous Rank"
+                                            value={
+                                                book.prevRank !== 0
+                                                    ? `#${book.prevRank}`
+                                                    : "Not Available"
+                                            }
+                                            gradient="bg-gradient-to-r from-purple-50 to-pink-50"
+                                        />
+                                    </div>
+
                                     <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
                                         <div className="flex items-center gap-3 mb-3">
                                             <BookOpen
