@@ -36,14 +36,16 @@ const Moods = () => {
                 </div>
             </div>
             <div className="p-8 lg:px-40 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 my-10">
-                {genresAvailable.map((genre, idx) => (
-                    <MoodCard
-                        key={idx}
-                        genreName={genre.genreName}
-                        apiQuery={genre.apiQuery}
-                        idx={idx}
-                    />
-                ))}
+                {genresAvailable
+                    .filter(genre => genre.genreName.trim() !== '')  // Filter out empty genre names
+                    .map((genre, idx) => (
+                        <MoodCard
+                            key={idx}
+                            genreName={genre.genreName}
+                            apiQuery={genre.apiQuery}
+                            idx={idx}
+                        />
+                    ))}
             </div>
         </div>
     );

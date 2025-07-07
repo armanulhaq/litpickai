@@ -155,23 +155,6 @@ const BookDetails = () => {
                                         </p>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <StatCard
-                                            label="Current Rank"
-                                            value={`#${book.rank}`}
-                                            gradient="bg-gradient-to-r from-blue-50 to-cyan-50"
-                                        />
-                                        <StatCard
-                                            label="Previous Rank"
-                                            value={
-                                                book.prevRank !== 0
-                                                    ? `#${book.prevRank}`
-                                                    : "Not Available"
-                                            }
-                                            gradient="bg-gradient-to-r from-purple-50 to-pink-50"
-                                        />
-                                    </div>
-
                                     <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
                                         <div className="flex items-center gap-3 mb-3">
                                             <BookOpen
@@ -202,47 +185,6 @@ const BookDetails = () => {
                                             />
                                         </a>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mb-8">
-                    <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                            Bestseller Performance
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                                <div className="text-4xl font-black mb-2">
-                                    #{book.rank}
-                                </div>
-                                <div className="font-semibold uppercase tracking-wider text-blue-100">
-                                    This Week
-                                </div>
-                            </div>
-                            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                                <div className="text-4xl font-black mb-2">
-                                    {book.prevRank !== 0
-                                        ? `#${book.prevRank}`
-                                        : "New"}
-                                </div>
-                                <div className="font-semibold uppercase tracking-wider text-purple-100">
-                                    Last Week
-                                </div>
-                            </div>
-                            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                                <div className="text-4xl font-black mb-2">
-                                    {rankChange && rankChange.type === "up"
-                                        ? `+${rankChange.value}`
-                                        : rankChange &&
-                                          rankChange.type === "down"
-                                        ? `-${rankChange.value}`
-                                        : "—"}
-                                </div>
-                                <div className="font-semibold uppercase tracking-wider text-emerald-100">
-                                    Change
                                 </div>
                             </div>
                         </div>
